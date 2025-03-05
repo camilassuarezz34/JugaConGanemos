@@ -99,26 +99,24 @@
 
     <!-- Meta Pixel Code -->
     <script>
-    !function(f,b,e,v,n,t,s)
-    {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
-    n.callMethod.apply(n,arguments):n.queue.push(arguments)};
-    if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
-    n.queue=[];t=b.createElement(e);t.async=!0;
-    t.src=v;s=b.getElementsByTagName(e)[0];
-    s.parentNode.insertBefore(t,s)}(window, document,'script',
-    'https://connect.facebook.net/en_US/fbevents.js');
-    fbq('init', '1079467673946911');
-    fbq('track', 'PageView');
+        !function(f,b,e,v,n,t,s)
+        {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+        n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+        if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+        n.queue=[];t=b.createElement(e);t.async=!0;
+        t.src=v;s=b.getElementsByTagName(e)[0];
+        s.parentNode.insertBefore(t,s)}(window, document,'script',
+        'https://connect.facebook.net/en_US/fbevents.js');
+        fbq('init', '1079467673946911'); // Remplazar por pixel
+        fbq('track', 'PageView');
     </script>
-    <noscript><img height="1" width="1" style="display:none"
-    src="https://www.facebook.com/tr?id=1079467673946911&ev=PageView&noscript=1"
-    /></noscript>
-    <!-- End Meta Pixel Code -->
-
+    <noscript>
+        <img height="1" width="1" src="https://www.facebook.com/tr?id=1079467673946911&ev=PageView&noscript=1"/> //remplazar por pixel id
+    </noscript>
 
 <script>
     // Variables de configuración
-    const accessToken = "EAAI7i9onX90BOwLNcgq7ZCaPIxCwMMmZCM5RwO0kxxGgd95SuQolTPNbdu3F3kDzitETCGoANvSGTnZCRNCyAJB5R0ZCFl11yrBZBytFMnvPgu9VlRaYAbxEFaaTAibQtCrDP84OOWlVxdh2MjAPYXnObfMSagYR8mPuJYvoPS3vXaaJwHI8WBeqg8r6ZBVMAhWgZDZD"; // Reemplázalo con tu token de acceso de la API de conversiones
+    const accessToken = "EAAI7i9onX90BOZCyZCj7aVLSIT163X9iZBCYefxVZA69i7XbZARXO91kDZBQxj6FdfVDi8cacV6cPprhWFwUvIRowATRDbRiZBAOOLNbdDX738Qin3X1fedJKzSYsUBmZAWDFs32gnZB9C8ZAGOIE3uhm0Hg11X8XM3oiE4zQ0mzaWdxw7mjSPQTH4ceqD1BzR2yEjXwZDZD"; // Reemplázalo con tu token de acceso de la API de conversiones
     const pixelId = "1079467673946911"; // Reemplázalo con tu Pixel ID de Meta
     const conversionValue = 5;  // Ajusta el valor de la conversión
     const currency = "ARS";  // Ajusta la moneda
