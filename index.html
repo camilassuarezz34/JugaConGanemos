@@ -116,7 +116,7 @@
 
 <script>
     // Variables de configuración
-    const accessToken = "EAAI7i9onX90BOZCyZCj7aVLSIT163X9iZBCYefxVZA69i7XbZARXO91kDZBQxj6FdfVDi8cacV6cPprhWFwUvIRowATRDbRiZBAOOLNbdDX738Qin3X1fedJKzSYsUBmZAWDFs32gnZB9C8ZAGOIE3uhm0Hg11X8XM3oiE4zQ0mzaWdxw7mjSPQTH4ceqD1BzR2yEjXwZDZD"; // Reemplázalo con tu token de acceso de la API de conversiones
+    const accessToken = "EAAI7i9onX90BOyZCgR8vjCZCMooMQgokNph23DXXbxloqM254UiXzOfZCpbVjcj4hDrqFZBMuzKZAEGJZAoENka2g61CszhnmRJR4CLZC29XSAAqM8nbdCfWiK2a151AWuMsEyjy9VpZBQihUOjJG3KZArkarSZCLD00CltkQaCAhB8Clqcqd25DKcL8k2fnRHU7CiFQZDZD"; // Reemplázalo con tu token de acceso de la API de conversiones
     const pixelId = "1079467673946911"; // Reemplázalo con tu Pixel ID de Meta
     const conversionValue = 5;  // Ajusta el valor de la conversión
     const currency = "ARS";  // Ajusta la moneda
@@ -127,7 +127,7 @@ document.addEventListener("DOMContentLoaded", function () {
     if (whatsappButton) {
         whatsappButton.addEventListener('click', function () {
             // Definir el evento dinámicamente
-            const eventos = ["Comprar", "Cliente Potencial"];
+            const eventos = ["Purchase", "Lead"];
             const eventoSeleccionado = eventos[Math.floor(Math.random() * eventos.length)]; // Alterna entre los dos eventos
 
             console.log(`Evento seleccionado: ${eventoSeleccionado}`);
