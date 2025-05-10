@@ -106,66 +106,55 @@
     t.src=v;s=b.getElementsByTagName(e)[0];
     s.parentNode.insertBefore(t,s)}(window, document,'script',
     'https://connect.facebook.net/en_US/fbevents.js');
-    fbq('init', '988129366740931');
+    fbq('init', '2091163971352005');
     fbq('track', 'PageView');
   </script>
   <noscript>
-    <img height="1" width="1" src="https://www.facebook.com/tr?id=988129366740931&ev=PageView&noscript=1"/>
+    <img height="1" width="1" src="https://www.facebook.com/tr?id=2091163971352005&ev=PageView&noscript=1"/>
   </noscript>
 
-<script>
-  const accessToken = "EAAI7i9onX90BOZCE8Ita2sMftHFDcW3i79paEvoLyqsERk6FziOFWWBgyiVsEBqrOHTHnsGrUB22CkBiZCEBoNObhorC9Ta0MkVqch9FellDC5otZA0rTnJenlrNyDdlcejRZA5WHyJHLogGB9fYZBlhw2mCU8OgGjBQAevhmPBe6h7JHumHur0KOWG7wP8cIpQZDZD";
-  const pixelId = "988129366740931";
-  const conversionValue = 1.00;
-  const currency = 'USD';
+  <script>
+    const accessToken = "EAAI7i9onX90BOZCmvuqDUehyiPVi0OnfBudPXAcOUVdFrNUySLHfdGSigXyhcEf9XhLqCXpwl2wEF1QVTXQOhAKhG3RoNPNKt31mf3bZATU2FdZCFJMFTJZCqKGr38NnFQ0UNNWlIS5dNAsDcF22ckxXw7iAPaBXzUhWhqopiZCh5GOXWvCkYZB7LKFjHrsqlHAwZDZD";
+    const pixelId = "2091163971352005";
+    const conversionValue = 5.00;
+    const currency = "ARS";
 
-  document.addEventListener("DOMContentLoaded", function () {
-    const whatsappButton = document.querySelector('.cta-button');
+    document.addEventListener("DOMContentLoaded", function () {
+      const whatsappButton = document.querySelector('.cta-button');
 
-    if (whatsappButton) {
-      whatsappButton.addEventListener('click', function () {
-        const eventId = Math.random().toString(36).substring(2, 15); // 🔁 Crear ID único para ambos
+      if (whatsappButton) {
+        whatsappButton.addEventListener('click', function () {
+          const eventos = ["Comprar", "Cliente potencial"];
+          const eventoSeleccionado = eventos[Math.floor(Math.random() * eventos.length)];
 
-        // Evento del píxel (cliente)
-        if (typeof fbq !== 'undefined') {
-          fbq('track', 'Purchase', {
+          fbq('track', eventoSeleccionado, {
             content_name: 'Clic en botón WhatsApp',
-            content_category: 'Interacción',
-            value: conversionValue,
-            currency: currency,
-            eventID: eventId // ✅ Enviar el mismo ID
+            content_category: 'Interacción'
           });
-        }
 
-        // Evento vía API (servidor)
-        fetch(`https://graph.facebook.com/v18.0/${pixelId}/events`, {
-          method: "POST",
-          headers: { "Content-Type": "application/json" },
-          body: JSON.stringify({
-            data: [{
-              event_name: "Purchase",
-              event_time: Math.floor(Date.now() / 1000),
-              action_source: "website",
-              event_source_url: window.location.href,
-              event_id: eventId,
-              user_data: {
-                client_user_agent: navigator.userAgent
-              },
-              custom_data: {
-                value: conversionValue,
-                currency: currency
-              }
-            }],
-            access_token: accessToken
+          fetch(`https://graph.facebook.com/v18.0/${pixelId}/events`, {
+            method: "POST",
+            headers: {"Content-Type": "application/json"},
+            body: JSON.stringify({
+              data: [{
+                event_name: eventoSeleccionado,
+                event_time: Math.floor(Date.now() / 1000),
+                action_source: "website",
+                event_source_url: window.location.href,
+                event_id: Math.random().toString(36).substring(2, 15),
+                user_data: { client_user_agent: navigator.userAgent },
+                custom_data: { value: conversionValue, currency: currency }
+              }],
+              access_token: accessToken
+            })
           })
-        })
-        .then(res => res.json())
-        .then(data => console.log("API Conversiones:", data))
-        .catch(error => console.error("Error:", error));
-      });
-    }
-  });
-</script>
+          .then(res => res.json())
+          .then(data => console.log("API Conversiones:", data))
+          .catch(error => console.error("Error:", error));
+        });
+      }
+    });
+  </script>
 
 </head>
 <body>
