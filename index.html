@@ -96,96 +96,34 @@
     }
   </style>
 
-  <!-- Pixel de Meta -->
-  <script>
-    !function(f,b,e,v,n,t,s)
-    {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
-    n.callMethod.apply(n,arguments):n.queue.push(arguments)};
-    if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
-    n.queue=[];t=b.createElement(e);t.async=!0;
-    t.src=v;s=b.getElementsByTagName(e)[0];
-    s.parentNode.insertBefore(t,s)}(window, document,'script',
-    'https://connect.facebook.net/en_US/fbevents.js');
-    fbq('init', '758703546661984');
-    fbq('track', 'PageView');
-  </script>
-  <noscript>
-    <img height="1" width="1" src="https://www.facebook.com/tr?id=758703546661984&ev=PageView&noscript=1"/>
-  </noscript>
-
-  <!-- Evento Purchase (Pixel + CAPI) -->
-  <script>
-    function getCookie(name) {
-      const value = `; ${document.cookie}`;
-      const parts = value.split(`; ${name}=`);
-      if (parts.length === 2) return parts.pop().split(';').shift();
-    }
-
-    const accessToken = "EAAKhkyUl0NQBPNrY9ExkeXzWtnMN0TaRNzjjtQwwMkCXKfaxNtSRaxxmPKnPZAYq0GU50362ZAN5ZCV9M0yUCxYlZB9uTlWesOU9CzcKuzVlsrACbJkR5uFY6HVmwKRoRSYmKV8CrgfWtMehZAr1yrZAClV6P51PRx38Nx2GGUYwNpO4QzbvTH6FAknmGDLAZDZD";
-    const pixelId = "758703546661984";
-    const conversionValue = 5.00;
-    const currency = "ARS";
-
-    document.addEventListener("DOMContentLoaded", function () {
-      const whatsappButton = document.querySelector('.cta-button');
-
-      if (whatsappButton) {
-        whatsappButton.addEventListener('click', function () {
-          const eventId = Math.random().toString(36).substring(2, 15);
-
-          // Pixel: evento Purchase
-          fbq('track', 'Purchase', {
-            content_name: 'Clic en botón WhatsApp',
-            content_category: 'Interacción',
-            value: conversionValue,
-            currency: currency,
-            eventID: eventId
-          });
-
-          // API: evento Purchase
-          fetch("https://sa.stape.co", {
-            // fetch("https://<tu-subdominio>.stape.io", {  // ← usa esto con Stape
-            method: "POST",
-            headers: { "Content-Type": "application/json" },
-            body: JSON.stringify({
-              data: [{
-                event_name: "Purchase",
-                event_time: Math.floor(Date.now() / 1000),
-                action_source: "website",
-                event_source_url: window.location.href,
-                event_id: eventId,
-                user_data: {
-                  client_user_agent: navigator.userAgent,
-                  fbp: getCookie('_fbp') || '',
-                  fbc: getCookie('_fbc') || ''
-                },
-                custom_data: {
-                  value: conversionValue,
-                  currency: currency,
-                  content_name: "Clic en botón WhatsApp",
-                  content_category: "Interacción"
-                }
-              }],
-              access_token: accessToken
-            })
-          })
-          .then(res => res.json())
-          .then(data => console.log("API Conversiones:", data))
-          .catch(error => console.error("Error:", error));
-        });
-      }
-    });
-  </script>
+<!-- Meta Pixel Code -->
+<script>
+  !function(f,b,e,v,n,t,s)
+  {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+  n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+  if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+  n.queue=[];t=b.createElement(e);t.async=!0;
+  t.src=v;s=b.getElementsByTagName(e)[0];
+  s.parentNode.insertBefore(t,s)}(window, document,'script',
+  'https://connect.facebook.net/en_US/fbevents.js');
+  fbq('init', '1332573854993195'); 
+  fbq('track', 'PageView');
+</script>
+<noscript>
+  <img height="1" width="1" style="display:none"
+       src="https://www.facebook.com/tr?id=1332573854993195&ev=PageView&noscript=1"/>
+</noscript>
+<!-- End Meta Pixel Code -->
 
 </head>
 <body>
   <section class="hero">
     <h1>Juga con Ganemos</h1>
     <p>Para crear tu cuenta, envíanos un WhatsApp haciendo click en el botón de abajo</p>
-    <a href="https://api.whatsapp.com/send?phone=5492612351743&text=¡Buen4s!%20Me%20gust4rí4%20cre4r%20un%20usu4rio.%20Mi%20nombre%20es:" 
-       class="cta-button" target="_blank">
-      <i class='fab fa-whatsapp'></i> ¡Crea tu usuario!
-    </a>
+        <a href="https://api.whatsapp.com/send?phone=5491160414763&text=¡Buen4s!%20Me%20gust4rí4%20cre4r%20un%20usu4rio.%20Mi%20nombre%20es:" 
+           class="cta-button" target="_blank" onclick="fbq('trackCustom', 'WhatsAppClick')">
+            <i class='fab fa-whatsapp'></i> ¡Crea tu usuario!
+        </a>
   </section>
   <section class="info">
     <h2>Beneficios Exclusivos</h2>
