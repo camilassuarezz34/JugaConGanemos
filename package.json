@@ -1,0 +1,13 @@
+{
+  "name": "Juga con Ganemos",
+  "version": "1.0.0",
+  "description": "Sitio web Juga con Ganemos con panel de administración",
+  "scripts": {
+    "dev": "vercel dev"
+  },
+  "dependencies": {
+    "ioredis": "^5.3.2"
+  },
+  "devDependencies": {}
+}
+
